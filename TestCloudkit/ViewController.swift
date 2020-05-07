@@ -12,20 +12,37 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let Cloudwork  = CloudWorker()
+        
         var scores: [Int] = []
         var names: [String] = []
+     
         
-        let a  = CloudWorker()
-        a.fetch(completion: { nomes,score in
-            scores = score
-            names = nomes
+        
+        Cloudwork.fetch(completion: { nomes,score in
+            self.execOrderAndValueSwitch(names: nomes,scores: score)
         })
         
-        for value in scores.sorted(){
-                
-        }
+        
+       
         
     }
+    func execOrderAndValueSwitch(names: [String],scores: [Int]){
+        var namesScores: [Int:String] = [:]
+             var namesOrdered: [String] = []
+           print(scores)
+           print(names)
+           
+           for i in 0..<scores.count{
+               namesScores[scores[i]] = names[i]
+           }
+           
+           for value in scores.sorted(){
+               namesOrdered.append(namesScores[value]!)
+           }
+           
+           print(namesOrdered)
+           }
 
 
 }
