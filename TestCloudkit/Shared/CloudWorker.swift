@@ -6,15 +6,6 @@
 //
 
 import Foundation
-
-//
-//  CloudWorker.swift
-//  App
-//
-//  Created by Guilherme Martins Dalosto de Oliveira on 07/05/20.
-//
-
-import Foundation
 import CloudKit
 
 class CloudWorker{
