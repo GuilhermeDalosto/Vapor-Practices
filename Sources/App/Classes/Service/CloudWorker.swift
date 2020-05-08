@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import TestCloudkit
 import CloudKit
 
 class CloudWorker{
