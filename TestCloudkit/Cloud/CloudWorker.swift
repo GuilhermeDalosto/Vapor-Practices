@@ -50,4 +50,24 @@ class CloudWorker{
         
     }
     
+    func sendValuesToCloud(names: [String]){
+        let publicDatabase = container.publicCloudDatabase
+        
+        let record = CKRecord(recordType: "Ranking")
+        let recordOperation = CKModifyRecordsOperation()
+        
+        
+        let namesAsReference = names.map { (name) -> CKRecord.Reference in
+            let recordID = CKRecord.ID(recordName: name)
+            return CKRecord.Reference(recordID: recordID, action: .deleteSelf)
+        }
+        
+        
+        record.setValue(namesAsReference, forKeyPath: "userIds")
+        recordOperation.recordsToSave = [record]
+        recordOperation.savePolicy = .ifServerRecordUnchanged
+        
+        publicDatabase.add(recordOperation)
+    }
+    
 }
