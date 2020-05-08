@@ -12,5 +12,6 @@ public func configure(
     try routes(router)
     services.register(router, as: Router.self)
     
-   
+    let myService = NIOServerConfig.default(port: 8001)
+    services.register(myService)
 }

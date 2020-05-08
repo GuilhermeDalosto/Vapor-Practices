@@ -38,7 +38,6 @@ class CloudWorker{
         
         print("Performing operation...")
         publicDataBase.add(queryOperation)
-        
     }
     
     func sendValuesToCloud(names: [String]){
